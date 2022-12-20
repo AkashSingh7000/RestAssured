@@ -1,34 +1,29 @@
 package api_test;
-import helper.PostApiHelper;
+import helper.PutApiHelper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import netscape.javascript.JSObject;
 import org.apache.http.HttpStatus;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+public class PutApi {
 
-public class PostApi {
-
-    PostApiHelper helper = new PostApiHelper();
+    PutApiHelper helper = new PutApiHelper();
     Response response;
 
 
     @Test()
-    public void postApi()
+    public void putApi()
     {
         JSONObject ob = new JSONObject();
-        ob.put("Name", "Akash");
+        ob.put("Name", "Akash Singh");
         ob.put("Job", "Software Engineer");
-        response = helper.postResponse(ob);
-        Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_CREATED);
+        response = helper.putResponse(ob);
+        Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
         System.out.println(response.asPrettyString());
         JsonPath jsonPathEvaluator = response.jsonPath();
         Assert.assertTrue(jsonPathEvaluator.get("Job").equals("Software Engineer"));
-        Assert.assertTrue(jsonPathEvaluator.get("Name").equals("Akash"));
+        Assert.assertTrue(jsonPathEvaluator.get("Name").equals("Akash Singh"));
     }
 }
