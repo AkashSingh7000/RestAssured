@@ -1,5 +1,6 @@
 package api_test;
 import helper.PostApiHelper;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import netscape.javascript.JSObject;
 import org.apache.http.HttpStatus;
@@ -26,5 +27,8 @@ public class PostApi {
         response = helper.postResponse(ob);
         Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_CREATED);
         System.out.println(response.asPrettyString());
+        JsonPath jsonPathEvaluator = response.jsonPath();
+        Assert.assertTrue(jsonPathEvaluator.get("Job").equals("Software Engineer"));
+        Assert.assertTrue(jsonPathEvaluator.get("Name").equals("Akash"));
     }
 }
