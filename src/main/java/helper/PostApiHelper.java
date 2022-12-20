@@ -4,7 +4,6 @@ import endpoints.EndPoints;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import netscape.javascript.JSObject;
 import org.json.simple.JSONObject;
 import utils.BaseUtils;
 

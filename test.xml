@@ -7,6 +7,7 @@
             <class name="api_test.PostApi"/>
             <class name="api_test.PutApi"/>
             <class name="api_test.PatchApi"/>
+            <class name="api_test.DeleteApi"/>
         </classes>
     </test>
 </suite>

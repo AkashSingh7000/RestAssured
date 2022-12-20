@@ -2,7 +2,6 @@ package api_test;
 import helper.PostApiHelper;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import netscape.javascript.JSObject;
 import org.apache.http.HttpStatus;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
