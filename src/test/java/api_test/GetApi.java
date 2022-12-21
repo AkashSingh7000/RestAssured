@@ -12,7 +12,7 @@ public class GetApi {
     Response response;
 
 
-    @Test(priority = 0)
+    @Test()
     public void getApi()
     {
         response = helper.getResponse();

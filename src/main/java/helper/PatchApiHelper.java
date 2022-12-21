@@ -7,26 +7,23 @@ import io.restassured.response.Response;
 import org.json.simple.JSONObject;
 import utils.BaseUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class PostApiHelper {
+public class PatchApiHelper {
 
     BaseUtils baseUtils = new BaseUtils();
     private final String BASE_URL = baseUtils.getBaseUrl();
-    public PostApiHelper()
+    public PatchApiHelper()
     {
         RestAssured.baseURI = BASE_URL;
         RestAssured.useRelaxedHTTPSValidation();
     }
 
-    public Response postResponse(JSONObject ob)
+    public Response patchResponse(JSONObject ob)
     {
         Response response = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(ob.toJSONString())
                 .when()
-                .post(EndPoints.USERS)
+                .put(EndPoints.PATCH_USERS)
                 .andReturn();
         return response;
 
